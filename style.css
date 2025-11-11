@@ -1,0 +1,452 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+textarea {
+    resize: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* * =========================================
+ * ESTILOS GLOBAIS (inspirado no cadastro)
+ * =========================================
+ */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+}
+
+main {
+    width: 100%;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Títulos  */
+.titulo-secao {
+    color: #0072b5;
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.subtitulo-secao {
+    color: #555555;
+    text-align: center;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+}
+
+/* * =========================================
+ * HEADER E NAVEGAÇÃO
+ * =========================================
+ */
+header {
+    width: 100%;
+    padding: 15px 0;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: backdrop-filter 0.3s ease;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #0072b5;
+}
+
+.logo-img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.nav-lista {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-lista li a {
+    font-weight: 600;
+    color: #444;
+    padding-bottom: 5px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-lista li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #0072b5;
+    transition: width 0.3s ease;
+}
+
+.nav-lista li a:hover {
+    color: #0072b5;
+}
+
+.nav-lista li a:hover::after {
+    width: 100%;
+}
+
+
+/* * =========================================
+ * SEÇÃO HERO
+ * =========================================
+ */
+.hero {
+    background-color: #ffffff;
+    text-align: center;
+    padding: 160px 0 100px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.hero-conteudo h1 {
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: #333;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-conteudo p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Botão (Cor do cadastro) */
+.botao-cta {
+    display: inline-block;
+    padding: 14px 28px;
+    background-color: #6cc24a;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.botao-cta:hover {
+    background-color: #5aaa3a;
+    transform: translateY(-2px);
+}
+
+/* * =========================================
+ * SEÇÕES (Sobre, Problemas, Soluções, etc.)
+ * =========================================
+ */
+section {
+    padding: 70px 0;
+}
+
+/* Fundo alternado para ritmo */
+.secao-problemas,
+.secao-acessibilidade {
+    background-color: #ffffff;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+/* Sobre */
+.sobre-grade {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.sobre-texto h3,
+.info-equipe h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #0072b5;
+    margin-bottom: 10px;
+}
+
+.info-equipe {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Grades (Problemas, Soluções, Acessibilidade) */
+.problemas-grade,
+.solucoes-grade,
+.acessibilidade-grade {
+    display: grid;
+    /* Grade responsiva */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+/* Cartões (estilo do cadastro) */
+.cartao-problema,
+.cartao-solucao,
+.cartao-acessibilidade {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cartao-problema:hover,
+.cartao-solucao:hover,
+.cartao-acessibilidade:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.cartao-problema h3,
+.cartao-solucao h3,
+.cartao-acessibilidade h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #0072b5;
+    margin-bottom: 10px;
+}
+
+.cartao-problema p,
+.cartao-acessibilidade p {
+    text-align: left;
+    color: #555;
+}
+
+.icone-problema,
+.icone-acessibilidade {
+    font-size: 2.5rem;
+    color: #0072b5;
+    margin-bottom: 15px;
+}
+
+.lista-funcionalidades {
+    padding-left: 20px;
+}
+
+.lista-funcionalidades li {
+    list-style-type: disc;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+/* * =========================================
+ * SEÇÃO CONTATO (mesmo estilo do cadastro)
+ * =========================================
+ */
+.contato-grade {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.form-contato h3,
+.info-contato h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #0072b5;
+    margin-bottom: 15px;
+}
+
+.grupo-form {
+    margin-bottom: 15px;
+}
+
+.grupo-form label {
+    font-weight: 600;
+    color: #333333;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.grupo-form .input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.grupo-form .input:focus {
+    border-color: #0072b5;
+    box-shadow: 0 0 8px rgba(0, 114, 181, 0.3);
+    outline: none;
+}
+
+.botao-enviar {
+    width: 100%;
+    padding: 14px;
+    background-color: #6cc24a;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.botao-enviar:hover {
+    background-color: #5aaa3a;
+}
+
+.info-contato p {
+    text-align: left;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.info-contato p i {
+    color: #0072b5;
+    width: 25px;
+    text-align: center;
+    margin-right: 5px;
+}
+
+.links-sociais {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.links-sociais a {
+    font-size: 1.8rem;
+    color: #555;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.links-sociais a:hover {
+    color: #0072b5;
+    transform: scale(1.1);
+}
+
+/* * =========================================
+ * FOOTER
+ * =========================================
+ */
+footer {
+    background-color: #333;
+    color: #f4f7f6;
+    text-align: center;
+    padding: 25px 0;
+    margin-top: 40px;
+}
+
+/* * =========================================
+ * RESPONSIVIDADE (Mobile)
+ * =========================================
+ */
+
+@media (max-width: 900px) {
+
+    .sobre-grade,
+    .contato-grade {
+        grid-template-columns: 1fr;
+    }
+
+    .info-equipe {
+        /* Garante que o cartão da equipe não seja mais largo que o texto */
+        max-width: 100%;
+    }
+}
+
+
+@media (max-width: 768px) {
+    body {
+        /* Garante que o header fixo não cubra o conteúdo */
+        padding-top: 70px;
+    }
+
+    header {
+        padding: 10px 0;
+    }
+
+    .nav-lista {
+        /* Esconde o menu no mobile */
+        display: none;
+        position: absolute;
+        top: 60px;
+        /* Altura do header */
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        flex-direction: column;
+        text-align: center;
+        padding: 10px 0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-lista.ativo {
+        display: flex;
+    }
+
+    .nav-lista li {
+        padding: 10px 0;
+    }
+
+
+    .hero {
+        padding: 60px 0 40px 0;
+    }
+
+    .hero-conteudo h1 {
+        font-size: 2rem;
+    }
+
+    .titulo-secao {
+        font-size: 1.8rem;
+    }
+}
