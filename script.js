@@ -1,7 +1,5 @@
 /*
-* ======================================
-* Menu Mobile Toggle (Hambúrguer)
-* ======================================
+Menu Mobile (Hambúrguer)
 */
 const navLista = document.querySelector('.nav-lista');
 const linksMenu = navLista.querySelectorAll("li");
@@ -18,23 +16,17 @@ linksMenu.forEach(e => {
 });
 
 /*
-* ======================================
-* Theme Toggle (Dark/Light Mode)
-* ======================================
+Tema (Claro e Escuro)
 */
-// Função traduzida de 'toggleTheme'
 function alternarTema() {
     const html = document.querySelector("html");
-    // Atributo traduzido de 'data-theme' para 'data-tema'
     const temaAtual = html.getAttribute("data-tema");
     const novoTema = temaAtual === "dark" ? "light" : "dark";
     html.setAttribute("data-tema", novoTema);
     alternarIconeTema();
 }
 
-// Função traduzida de 'toggleThemeIcon'
 function alternarIconeTema() {
-    // ID traduzido de '#icon' para '#icone'
     const icone = document.querySelector("#icone");
     if (icone.classList.contains("fa-moon")) {
         icone.classList.replace("fa-moon", "fa-sun");
@@ -44,14 +36,11 @@ function alternarIconeTema() {
 }
 
 /*
-* ======================================
-* Formulário de Contato 
-* ======================================
+Formulário 
 */
 document.getElementById('contact-form').addEventListener('submit', function(event) {
   event.preventDefault();
 
-  // Esta linha precisa do <p id="status"></p> no seu HTML
   const status = document.getElementById('status'); 
   status.textContent = 'Enviando...';
 
@@ -63,7 +52,7 @@ document.getElementById('contact-form').addEventListener('submit', function(even
     to_email: 'saquacaresaquarema@gmail.com' 
   };
 
-  emailjs.send('service_pu4hx1p', 'template_1e2zmhy', templateParams) // mudar os paramentros
+  emailjs.send('service_pu4hx1p', 'template_1e2zmhy', templateParams) 
     .then(function(response) {
       status.textContent = 'Deu tudo certo';
       status.style.color = 'green';
@@ -75,11 +64,8 @@ document.getElementById('contact-form').addEventListener('submit', function(even
 });
 
 /*
-* ======================================
-* Efeito do Header ao Rolar (Otimizado)
-* ======================================
+Efeito do Header ao Rolar
 */
-// Função 'debounce' (termo técnico mantido)
 function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -92,7 +78,6 @@ function debounce(func, wait) {
     };
 }
 
-// Handler traduzido
 const rolagemOtimizada = debounce(function () {
     const header = document.querySelector('header');
     if (window.scrollY > 100) {
@@ -106,9 +91,7 @@ window.addEventListener('scroll', rolagemOtimizada);
 
 
 /*
-* ======================================
-* Animação ao Rolar (Intersection Observer)
-* ======================================
+Animação ao Rolar
 */
 const opcoesObservador = {
     threshold: 0.1,
@@ -123,13 +106,10 @@ const observador = new IntersectionObserver(function (entradas) {
     });
 }, opcoesObservador);
 
-// Observa os elementos para animar
 document.addEventListener('DOMContentLoaded', function () {
-    // Classes traduzidas
     const elementosAnimar = document.querySelectorAll('.cartao-problema, .cartao-solucao, .cartao-acessibilidade');
     
     elementosAnimar.forEach(el => {
-        // Prepara os elementos para a animação
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
         observador.observe(el);
