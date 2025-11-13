@@ -13,6 +13,12 @@
     <link rel="icon" href="imgs/Logo SaquaCare.PNG">
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("ot6pxK5ZPfhBI07n6"); //PUBLIC KEY 
+        })();
+    </script>
 </head>
 
 <body>
@@ -23,7 +29,7 @@
                     <img src="imgs/Logo SaquaCare Png.PNG" alt="SaquaCare Logo" class="logo-imagem">
                     SaquaCare
                 </a>
-                
+
                 <ul class="nav-lista">
                     <li><a href="#sobre">Sobre</a></li>
                     <li><a href="#problemas">Problemas</a></li>
@@ -35,7 +41,7 @@
                 <button class="alternar-tema" onclick="alternarTema()">
                     <i id="icone" class="fa-solid fa-moon"></i>
                 </button>
-                
+
                 <div class="menu-hamburguer">
                     <span></span>
                     <span></span>
@@ -150,7 +156,7 @@
                 </div>
             </div>
         </section>
-        
+
         <section id="acessibilidade" class="acessibilidade">
             <div class="container">
                 <h2 class="titulo-secao">Acessibilidade e Inclusão</h2>
@@ -187,24 +193,33 @@
                 <div class="contato-grade">
                     <div class="form-contato">
                         <h3>Envie uma Mensagem</h3>
-                        <form action="https://formspree.io/f/mwpbekbl" method="POST" onsubmit="enviarFormulario(event)">
+                        <form id="contact-form">
+
                             <div class="grupo-form">
-                                <label for="name">Nome</label>
-                                <input class="input" type="text" id="name" name="name" required>
+                                <label for="nome">Nome</label>
+                                <input type="text" id="nome" placeholder="Nome" required class="input">
                             </div>
+
                             <div class="grupo-form">
-                                <label for="email">E-mail</label>
-                                <input class="input" type="email" id="email" name="email" required>
+                                <label for="email">Email</label>
+                                <input type="email" id="email" placeholder="Email" required class="input">
                             </div>
+
                             <div class="grupo-form">
-                                <label for="subject">Assunto</label>
-                                <input class="input" type="text" id="subject" name="subject" required>
+                                <label for="assunto">Assunto</label>
+                                <input type="text" id="assunto" placeholder="Assunto" required class="input">
                             </div>
+
                             <div class="grupo-form">
-                                <label for="message">Mensagem</label>
-                                <textarea class="input" id="message" name="message" rows="5" required></textarea>
+                                <label for="mensagem">Mensagem</label>
+                                <textarea id="mensagem" placeholder="Mensagem" rows="5" required
+                                    class="input"></textarea>
                             </div>
-                            <button type="submit" class="botao-enviar">Enviar Mensagem</button>
+
+                            <button type="submit" class="botao-enviar">Enviar</button>
+
+                            <p id="status" style="margin-top: 15px; font-weight: bold;"></p>
+                            
                         </form>
                     </div>
                     <div class="info-contato">
@@ -213,16 +228,17 @@
                         <p><i class="fas fa-graduation-cap"></i> Engenharia de Software</p>
                         <p><i class="fas fa-map-marker-alt"></i> Saquarema, Rio de Janeiro</p>
                         <p><i class="fas fa-envelope"></i> saquacaresaquarema@gmail.com</p>
-                        
+
                         <div class="links-sociais">
-                            <a href="https://github.com/manuuwxz/SaquaCare" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/manuuwxz/SaquaCare" aria-label="GitHub"><i
+                                    class="fab fa-github"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
-    
+
     <footer>
         <div class="container">
             <p>&copy; 2025 SaquaCare - Projeto de Saúde Pública | Universidade de Vassouras | Desenvolvido pelos
@@ -233,7 +249,4 @@
     <script src="script.js"></script>
 </body>
 
-
 </html>
-
-
