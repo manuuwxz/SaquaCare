@@ -145,7 +145,7 @@ nav {
     transition: 0.3s;
 }
 
-/* Hero Section */
+/* Hero */
 .hero {
     background-image: linear-gradient(135deg, var(--cor-primaria), var(--cor-secundaria));
     color: var(--cor-texto-padrao);
@@ -581,4 +581,5 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--cor-texto);
+
 }
