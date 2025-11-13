@@ -45,38 +45,34 @@ function alternarIconeTema() {
 
 /*
 * ======================================
-* Formulário de Contato (Formspree)
-
-VOU TIRAR ISSO DEPOIS
+* Formulário de Contato 
 * ======================================
 */
-// Função traduzida de 'handleSubmit'
-function enviarFormulario(event) {
-    event.preventDefault();
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+  event.preventDefault();
 
-    const form = event.target;
-    const dadosForm = new FormData(form);
+  // Esta linha precisa do <p id="status"></p> no seu HTML
+  const status = document.getElementById('status'); 
+  status.textContent = 'Enviando...';
 
-    fetch(form.action, {
-        method: 'POST',
-        body: dadosForm,
-        headers: {
-            'Accept': 'application/json'
-        }
-    })
-        .then(resposta => {
-            if (resposta.ok) {
-                alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
-                form.reset();
-            } else {
-                throw new Error('Erro no envio');
-            }
-        })
-        .catch(erro => {
-            alert('Erro ao enviar mensagem. Tente novamente.');
-            console.error('Erro:', erro);
-        });
-}
+  const templateParams = {
+    from_name: document.getElementById('nome').value,
+    from_email: document.getElementById('email').value,
+    subject: document.getElementById('assunto').value,
+    message: document.getElementById('mensagem').value,
+    to_email: 'saquacaresaquarema@gmail.com' 
+  };
+
+  emailjs.send('service_pu4hx1p', 'template_1e2zmhy', templateParams) // mudar os paramentros
+    .then(function(response) {
+      status.textContent = 'Deu tudo certo';
+      status.style.color = 'green';
+      document.getElementById('contact-form').reset();
+    }, function(error) {
+      status.textContent = 'Deu erro: ' + error.text;
+      status.style.color = 'red';
+    });
+});
 
 /*
 * ======================================
